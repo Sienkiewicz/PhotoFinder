@@ -1,3 +1,9 @@
+<h1 align='center'> PHOTO FINDER (PRACTICE)</h1>
+
+
+## [View a Demo](https://photo-finder-test.netlify.app/) 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
