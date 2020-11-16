@@ -7,17 +7,20 @@ const StyledCart = styled.div`
 background-color: #fff0b3;
 width: 99%;
 margin: 0 auto;
-line-height: 2rem;
+line-height: 1.7rem;
 margin-bottom: 1px;
 z-index: 1;
 
 :hover {
 	background-color: #d9d9d9;
 }
+p {
+	font-size: 1rem;
+}
 
 `
 
-const CartOfWDM = ({ tabIndex, item, searchForQuery, setQuery}) => {
+const CartOfWDM = ({ item, searchForQuery, setQuery}) => {
 
 	let history = useHistory()
 	return (

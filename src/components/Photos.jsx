@@ -12,7 +12,7 @@ width: 1100px;
 padding: 15px;
 margin: 0 auto;
 
-	 @media only screen and (max-width: 500px) {
+	 @media only screen and (max-width: 800px) {
 			  padding: 5px;
 				width: 100%;
 		}
@@ -25,10 +25,6 @@ margin: 0 auto;
 			  width: 100%;
 		}
 
-		div {
-			padding-left: 10px;
-			font-size: 1.3rem;
-		}
 }
 
 .grid-container{
@@ -55,7 +51,7 @@ const Photos = () => {
 
 
 	useEffect(() => {
-		if(arrayOfPhotos.length === 0 && query) {
+		if (arrayOfPhotos.length === 0 && query) {
 			searchForQuery(query)
 		}
 	}, [query])
@@ -72,7 +68,8 @@ const Photos = () => {
 					urlPhoto={item.urls.small}
 					id={item.id}
 					getPhoto={getPhoto} />
-			})}</div>
+			})}
+			</div>
 			{dataOfPhoto.userName && !isFetching &&
 				<BigPhoto location={dataOfPhoto.location}
 					userName={dataOfPhoto.userName}

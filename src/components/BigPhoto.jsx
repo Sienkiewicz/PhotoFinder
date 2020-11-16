@@ -68,20 +68,23 @@ align-items: center;
 
 const BigPhoto = ({ location, userName, urlOfPhoto, setDataOfPhoto }) => {
 	return (
-		<StyledBackdropPhoto>
-			<div className='backdrop'>
-				<div>
-					<p>user Name: <b>{userName}</b></p>
-					<i
-						className="fas fa-times"
-						onClick={() => setDataOfPhoto({})}
-					></i>
+		<StyledBackdropPhoto
+		type='button'
+		onClick={()=>setDataOfPhoto({})}
+		>
+				<div className='backdrop'>
+					<div>
+						<p>user Name: <b>{userName}</b></p>
+						<i
+							className="fas fa-times"
+							onClick={() => setDataOfPhoto({})}
+						></i>
+					</div>
+					<div className='containerForImg'>
+						<img className='img' src={urlOfPhoto} alt=""></img>
+					</div>
+					<div><p>{location && 'location: '}{location}</p></div>
 				</div>
-				<div className='containerForImg'>
-					<img className='img' src={urlOfPhoto} alt=""></img>
-				</div>
-				<div><p>{location && 'location: '}{location}</p></div>
-			</div>
 		</StyledBackdropPhoto>
 	)
 }
