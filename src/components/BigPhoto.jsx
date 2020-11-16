@@ -46,16 +46,17 @@ align-items: center;
 			text-align: right;
 			padding-bottom: 20px;
 		}
-		.container {
+		.containerForImg {
 			margin: 0 auto;
 			width: 100%;
 			height: 700px;
+			display: flex;
+			justify-content: center;
 			@media only screen and (max-width: 500px) {
 				height: 350px;
       	}
 
 			.img {
-				margin: 0 auto;
 				max-height: 100%;
 				max-width: 100%;
 			}
@@ -76,7 +77,7 @@ const BigPhoto = ({ location, userName, urlOfPhoto, setDataOfPhoto }) => {
 						onClick={() => setDataOfPhoto({})}
 					></i>
 				</div>
-				<div className='container'>
+				<div className='containerForImg'>
 					<img className='img' src={urlOfPhoto} alt=""></img>
 				</div>
 				<div><p>{location && 'location: '}{location}</p></div>

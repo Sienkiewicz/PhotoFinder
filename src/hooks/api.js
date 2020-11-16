@@ -13,7 +13,7 @@ export const useRandomizeApi = () => {
 			unsplash.photos.getRandomPhoto()
 				.then(toJson)
 				.then(json => {
-					console.log(json)
+					// console.log(json)
 					setRandomPhoto(json.urls.regular)
 				});
 		}catch (error) {

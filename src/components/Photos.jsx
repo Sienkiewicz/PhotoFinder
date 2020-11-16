@@ -3,7 +3,7 @@ import Card from './Card'
 import SearchInput from './SearchInput'
 import { useArrayOfPhotos, useSetArrayOfPhotos } from '../Context'
 import styled from 'styled-components'
-import { useGetPhotoApi } from '../api/api'
+import { useGetPhotoApi } from '../hooks/api'
 import BigPhoto from './BigPhoto'
 import { useRouteMatch } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ margin: 0 auto;
 				width: 100%;
 		}
 
-.container {
+.containerForSearchInput {
 	width: 80%;
 	display: flex;
 	align-items: center;
@@ -63,7 +63,7 @@ const Photos = () => {
 
 	return (
 		<StyledPhotosSearchPage>
-			<div className='container'>
+			<div className='containerForSearchInput'>
 				<SearchInput />
 			</div>
 			<div className='grid-container'>{arrayOfPhotos.map(item => {

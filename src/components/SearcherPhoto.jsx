@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useRandomizeApi } from '../api/api'
+import { useRandomizeApi } from '../hooks/api'
 import SearchInput from './SearchInput'
 
 const StyledSearcher = styled.div`
