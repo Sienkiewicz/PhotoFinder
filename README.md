@@ -1,7 +1,9 @@
-<h1 align='center'> PHOTO FINDER (PRACTICE)</h1>
+<h1 align='center'> PHOTO FINDER (TEST)</h1>
 
 
 ## [View a Demo](https://photo-finder-test.netlify.app/) 
+
+<p align='center'>I used free API from <b> UNSPLASH (https://github.com/unsplash/unsplash-js)</b> </p>
 
 
 # Getting Started with Create React App
