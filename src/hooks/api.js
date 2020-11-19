@@ -6,7 +6,15 @@ const unsplash = new Unsplash({ accessKey: 'NcuYv7ozP0wKgXcjqXDIaMkgAcE2E6Mh4GpP
 const w = window.outerWidth;
 const h = window.outerHeight;
 
-// const dimension = () =>  w > 1000 ? 'full' : w > 400 ? 'regular' : 'small'
+const dimension = (json) => {
+	if (w > 1000) {
+		return json.urls.full
+	} else if (w > 400) {
+		return json.urls.regular
+	} return json.urls.small
+}
+
+
 const orientation = () => w > h ? 'landscape' : w < h ? 'portrait' : 'squarish'
 
 
@@ -21,7 +29,7 @@ export const useRandomizeApi = () => {
 			unsplash.photos.getRandomPhoto({ orientation: `${ orientation() }` })
 				.then(toJson)
 				.then(json => {
-					setRandomPhoto(json.urls.regular)
+					setRandomPhoto(dimension(json))
 				});
 		} catch (error) {
 			console.log(error)
@@ -40,10 +48,11 @@ export const useGetPhotoApi = () => {
 			unsplash.photos.getPhoto(id)
 				.then(toJson)
 				.then((json) => {
+					console.log(dimension(json))
 					let data = {
 						location: json.location.name !== null ? json.location.name : '',
 						userName: json.user.name ? json.user.name : '',
-						urlOfPhoto: json.urls.regular
+						urlOfPhoto: dimension(json)
 					}
 					setDataOfPhoto(data)
 				});
