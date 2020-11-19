@@ -3,20 +3,27 @@ import Unsplash, { toJson } from 'unsplash-js';
 
 const unsplash = new Unsplash({ accessKey: 'NcuYv7ozP0wKgXcjqXDIaMkgAcE2E6Mh4GpPOArE4KU' });
 
+const w = window.outerWidth;
+const h = window.outerHeight;
+
+// const dimension = () =>  w > 1000 ? 'full' : w > 400 ? 'regular' : 'small'
+const orientation = () => w > h ? 'landscape' : w < h ? 'portrait' : 'squarish'
+
 
 
 export const useRandomizeApi = () => {
 	const [randomPhoto, setRandomPhoto] = useState('')
 
+
+
 	const randomizePhoto = async () => {
-		try{
-			unsplash.photos.getRandomPhoto()
+		try {
+			unsplash.photos.getRandomPhoto({ orientation: `${ orientation() }` })
 				.then(toJson)
 				.then(json => {
-					// console.log(json)
 					setRandomPhoto(json.urls.regular)
 				});
-		}catch (error) {
+		} catch (error) {
 			console.log(error)
 		}
 	}
@@ -26,6 +33,7 @@ export const useRandomizeApi = () => {
 
 export const useGetPhotoApi = () => {
 	const [dataOfPhoto, setDataOfPhoto] = useState({})
+
 
 	const getPhoto = async (id) => {
 		try {
@@ -42,10 +50,8 @@ export const useGetPhotoApi = () => {
 		} catch (error) {
 			console.log(error)
 		}
-		
+
 	}
-
-
 
 	return [getPhoto, dataOfPhoto, setDataOfPhoto]
 }

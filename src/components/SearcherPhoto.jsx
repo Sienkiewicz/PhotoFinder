@@ -19,6 +19,8 @@ align-items: center;
 const SearcherPhoto = () => {
 	const [randomPhoto, randomizePhoto] = useRandomizeApi()
 
+	
+
 	useEffect(() => {
 		randomizePhoto()
 	}, [])

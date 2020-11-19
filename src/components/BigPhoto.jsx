@@ -47,9 +47,10 @@ align-items: center;
 			padding-bottom: 20px;
 		}
 		.containerForImg {
+			position: relative;
 			margin: 0 auto;
 			width: 100%;
-			height: 700px;
+			height: 80vh;
 			display: flex;
 			justify-content: center;
 			@media only screen and (max-width: 500px) {
@@ -57,6 +58,8 @@ align-items: center;
       	}
 
 			.img {
+				position: absolute;
+				padding: 10px;
 				max-height: 100%;
 				max-width: 100%;
 			}

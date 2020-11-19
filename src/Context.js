@@ -36,7 +36,7 @@ const StateProvider = ({ children }) => {
 					}
 				})
 				.then(() => {
-					history.push(`/s/photos/${ query }`)
+					history.push(`/photos/${ query }`)
 				})
 		} catch (error) {
 			console.log(error)

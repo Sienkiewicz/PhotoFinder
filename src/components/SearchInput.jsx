@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useSetArrayOfPhotos } from '../Context'
-import { arrayOfKeywords } from '../arrayOfKeywords'
 import CartOfWDM from './CartOfWDM'
+import useQuery from '../hooks/useQuery'
 
 const StyledCartWDM = styled.div`
-width: 100%;
-display: flex;
-flex-direction: column;
+	margin-top:3px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 `
 
 const StyledInput = styled.div`
@@ -55,37 +56,12 @@ margin-bottom: 2px;
       }
 `
 
-const useQuery = () => {
-	const [query, setQuery] = useState('')
-	const [whatDidYouMean, setWhatDidYouMean] = useState([])
 
-	const arrayOfWhatDidYouMean = () => {
-		let arrayOfKeys = arrayOfKeywords.reduce((ack, item) => {
-			if (item.includes(query)) {
-				ack.push(item);
-			}
-			return ack
-		}, [])
-		let set = new Set(arrayOfKeys)
-		let array = Array.from(set).slice(0, 5);
-
-		return array
-	}
-
-	useEffect(() => {
-		query.length < 2 ? 
-		setWhatDidYouMean([]) : 
-		arrayOfWhatDidYouMean().length ? 
-		setWhatDidYouMean(arrayOfWhatDidYouMean()) : 
-		setWhatDidYouMean([`Sorry, but I don't  found any keys`])
-	}, [query])
-
-	return [query, setQuery, whatDidYouMean, setWhatDidYouMean]
-}
 
 const SearchInput = () => {
 	const [query, setQuery, whatDidYouMean, setWhatDidYouMean] = useQuery()
 	const searchForQuery = useSetArrayOfPhotos()
+	const inputRef = useRef()
 
 	const onChangeHandler = (e) => {
 		setQuery(e.target.value)
@@ -100,23 +76,34 @@ const SearchInput = () => {
 		}
 	}
 
+	const getFocus = () => {
+		inputRef.current.focus();
+	}
+
 	return (
 		<StyledInput>
-			<div className='containerForInputAndIcon'>
-				<i
-					className="fas fa-search"
-				></i>
+			<form className='containerForInputAndIcon'>
+				<button
+					title='search'
+					onClick={getFocus}
+				>
+					<i
+						className="fas fa-search"
+					></i>
+				</button>
 				<input
+					tabIndex='0'
+					ref={inputRef}
 					type='search'
 					id='search'
 					value={query}
 					name='mainSearch'
-					placeholder='write something, like "dog" or "forest"'
+					placeholder='write something...'
 					onKeyDown={e => enterHandler(e)}
 					onChange={(e) => onChangeHandler(e)}
 					autoComplete="off"
 				/>
-			</div>
+			</form>
 			<StyledCartWDM tabIndex='0'>
 				{query.length > 2 && whatDidYouMean.map(item =>
 					<CartOfWDM key={item} item={item} searchForQuery={searchForQuery} setQuery={setQuery} />)}

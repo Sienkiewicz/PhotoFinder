@@ -8,7 +8,6 @@ background-color: #fff0b3;
 width: 99%;
 margin: 0 auto;
 line-height: 1.7rem;
-margin-bottom: 1px;
 z-index: 1;
 
 :hover {
@@ -16,6 +15,7 @@ z-index: 1;
 }
 p {
 	font-size: 1rem;
+	padding-left: 10px;
 }
 
 `
