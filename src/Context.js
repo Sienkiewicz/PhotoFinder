@@ -8,35 +8,36 @@ const StateOfPhotosContext = React.createContext()
 const SetStateOfPhotosContext = React.createContext()
 const ClearStateOfPhotosContext = React.createContext()
 
-const useArrayOfPhotos = () => {
+const useArrayOfPhotosContext = () => {
 	return useContext(StateOfPhotosContext)
 }
-const useSetArrayOfPhotos = () => {
+const useSetArrayOfPhotosContext = () => {
 	return useContext(SetStateOfPhotosContext)
 }
-const useClearArrayOfPhotos = () => {
+const useClearArrayOfPhotosContext = () => {
 	return useContext(ClearStateOfPhotosContext)
 }
 
-const StateProvider = ({ children }) => {
+const StateProviderContext = ({ children }) => {
 	let history = useHistory()
 	const [arrayOfPhotos, setArrayOfPhotos] = useState([])
 
-	const searchForQuery = async (query, nrOfPage = 1, perPage = 30) => {
+	const searchForQuery = async (query, pageNr = 1, perPage = 10) => {
 		try {
 			unsplash.search
-				.photos(query, nrOfPage, perPage)
+				.photos(query, pageNr, perPage)
 				.then(toJson)
 				.then((json) => {
 					let data = json.results
-					if (nrOfPage === 1) {
+					console.log(data.width)
+					if (pageNr === 1) {
 						setArrayOfPhotos(data)
-					} else if(nrOfPage <= json.total_pages){
+					} else if (pageNr <= json.total_pages){
 						setArrayOfPhotos(prev => ([...prev, ...data]))
-					}
+					} else {console.log('end of gallery')}
 				})
 				.then(() => {
-					history.push(`/s/photos/${ query }`)
+					history.push(`/photos/${ query }`)
 				})
 		} catch (error) {
 			console.log(error)
@@ -59,4 +60,4 @@ const StateProvider = ({ children }) => {
 	)
 }
 
-export { StateProvider, useArrayOfPhotos, useSetArrayOfPhotos, useClearArrayOfPhotos }
+export { StateProviderContext, useArrayOfPhotosContext, useSetArrayOfPhotosContext, useClearArrayOfPhotosContext }

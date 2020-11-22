@@ -11,7 +11,7 @@ function App() {
 		<div className="App">
 		<Switch>
 				<Route exact path='/' render={() => <SearcherPhoto />} />
-				<Route exact path='/s/photos/:query?' render={() => <Photos />} />
+				<Route exact path='/photos/:query?' render={() => <Photos />} />
 		</Switch>
 			
 		</div>
