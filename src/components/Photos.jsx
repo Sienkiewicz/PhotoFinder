@@ -11,16 +11,17 @@ const StyledPhotosSearchPage = styled.section`
 width: 1100px;
 padding: 15px;
 margin: 0 auto;
+max-width: 100%;
 
 	 @media only screen and (max-width: 800px) {
 			  padding: 5px;
-				width: 100%;
+				/* width: 100%; */
 		}
 
 .containerForSearchInput {
 	position: fixed;
 	z-index: 1;
-	width: 80%;
+	width: 50%;
 	display: flex;
 	align-items: center;
 		 @media only screen and (max-width: 500px) {
@@ -31,12 +32,13 @@ margin: 0 auto;
 
 .grid-container{
 	padding-top: 2rem;
+	column-count: 3;
 	width: 100%;
-column-count: 3;
 
 	@media only screen and (max-width: 800px) {
   			column-count: 2;
-      }
+		}
+		
 	 @media only screen and (max-width: 500px) {
   			column-count: 1;
       }
@@ -110,7 +112,8 @@ const Photos = () => {
 				<BigPhoto location={dataOfPhoto.location}
 					userName={dataOfPhoto.userName}
 					urlOfPhoto={dataOfPhoto.urlOfPhoto}
-					setDataOfPhoto={setDataOfPhoto} />}
+					setDataOfPhoto={setDataOfPhoto}
+				/>}
 		</StyledPhotosSearchPage>
 	)
 }
