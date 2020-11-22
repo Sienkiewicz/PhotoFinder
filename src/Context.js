@@ -29,7 +29,6 @@ const StateProviderContext = ({ children }) => {
 				.then(toJson)
 				.then((json) => {
 					let data = json.results
-					console.log(data.width)
 					if (pageNr === 1) {
 						setArrayOfPhotos(data)
 					} else if (pageNr <= json.total_pages){

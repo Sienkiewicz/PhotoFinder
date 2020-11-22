@@ -60,7 +60,6 @@ const Photos = () => {
 		observer.current = new IntersectionObserver(entries => {
 			if (entries[0].isIntersecting) {
 				setPageNr(prev => prev + 1)
-				console.log('visible')
 			}
 		})
 		if (node) observer.current.observe(node)
@@ -68,7 +67,6 @@ const Photos = () => {
 
 	useEffect(() => {
 		if (pageNr > 1) {
-			console.log(pageNr)
 			searchForQuery(query, pageNr)
 		}
 	}, [pageNr])
