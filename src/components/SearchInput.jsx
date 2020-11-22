@@ -1,17 +1,17 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { useSetArrayOfPhotos } from '../Context'
-import CartOfWDM from './CartOfWDM'
+import { useSetArrayOfPhotosContext } from '../Context'
+import CartOfWDM from './CardOfWDYM'
 import useQuery from '../hooks/useQuery'
 
-const StyledCartWDM = styled.div`
+const StyledCartWDM = styled.section`
 	margin-top:3px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 `
 
-const StyledInput = styled.div`
+const StyledInput = styled.section`
 border: 1px solid grey;
 width: 100%;
 height: 2rem;
@@ -56,11 +56,9 @@ margin-bottom: 2px;
       }
 `
 
-
-
 const SearchInput = () => {
 	const [query, setQuery, whatDidYouMean, setWhatDidYouMean] = useQuery()
-	const searchForQuery = useSetArrayOfPhotos()
+	const searchForQuery = useSetArrayOfPhotosContext()
 	const inputRef = useRef()
 
 	const onChangeHandler = (e) => {
@@ -81,21 +79,24 @@ const SearchInput = () => {
 	}
 
 	return (
-		<StyledInput>
+		<StyledInput
+		>
 			<form className='containerForInputAndIcon'>
 				<button
+					tabIndex='-1'
 					title='search'
 					onClick={getFocus}
 				>
 					<i
+						tabIndex='-1'
 						className="fas fa-search"
 					></i>
 				</button>
 				<input
-					tabIndex='0'
 					ref={inputRef}
 					type='search'
 					id='search'
+					aria-label="Search"
 					value={query}
 					name='mainSearch'
 					placeholder='write something...'
@@ -104,12 +105,13 @@ const SearchInput = () => {
 					autoComplete="off"
 				/>
 			</form>
-			<StyledCartWDM tabIndex='0'>
+			<StyledCartWDM
+				tabIndex='0'
+			>
 				{query.length > 2 && whatDidYouMean.map(item =>
 					<CartOfWDM key={item} item={item} searchForQuery={searchForQuery} setQuery={setQuery} />)}
 			</StyledCartWDM>
 		</StyledInput>
-
 	)
 }
 

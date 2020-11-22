@@ -3,19 +3,19 @@ import Unsplash, { toJson } from 'unsplash-js';
 
 const unsplash = new Unsplash({ accessKey: 'NcuYv7ozP0wKgXcjqXDIaMkgAcE2E6Mh4GpPOArE4KU' });
 
-const w = window.outerWidth;
-const h = window.outerHeight;
+const w = window.innerWidth;
+const h = window.innerHeight;
 
-const dimension = (json) => {
-	if (w > 1000) {
-		return json.urls.full
+const dimensionOfPic = (json) => {
+	if (w > 1080) {
+		return json.urls.full + `&fm=jpg&w=${ w }&q=70&fit=crop`
 	} else if (w > 400) {
 		return json.urls.regular
 	} return json.urls.small
 }
 
 
-const orientation = () => w > h ? 'landscape' : w < h ? 'portrait' : 'squarish'
+const orientation = () => w / h > 1.3 ? 'landscape' : w / h < 0.7 ? 'portrait' : 'squarish'
 
 
 
@@ -23,13 +23,12 @@ export const useRandomizeApi = () => {
 	const [randomPhoto, setRandomPhoto] = useState('')
 
 
-
 	const randomizePhoto = async () => {
 		try {
 			unsplash.photos.getRandomPhoto({ orientation: `${ orientation() }` })
 				.then(toJson)
 				.then(json => {
-					setRandomPhoto(dimension(json))
+					setRandomPhoto(dimensionOfPic(json))
 				});
 		} catch (error) {
 			console.log(error)
@@ -48,11 +47,10 @@ export const useGetPhotoApi = () => {
 			unsplash.photos.getPhoto(id)
 				.then(toJson)
 				.then((json) => {
-					console.log(dimension(json))
 					let data = {
 						location: json.location.name !== null ? json.location.name : '',
 						userName: json.user.name ? json.user.name : '',
-						urlOfPhoto: dimension(json)
+						urlOfPhoto: dimensionOfPic(json)
 					}
 					setDataOfPhoto(data)
 				});

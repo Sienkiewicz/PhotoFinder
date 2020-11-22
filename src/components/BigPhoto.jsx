@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const StyledBackdropPhoto = styled.div`
+const StyledBackdropPhoto = styled.section`
 position: fixed;
+z-index: 2;
 top: 0;
 left: 0;
 width: 100%;
@@ -16,7 +17,6 @@ align-items: center;
 	.backdrop {
 		background: white;
 		width: 90%;
-		/* height: 90%; */
 		display: flex;
 		flex-direction: column;
 		
@@ -72,22 +72,25 @@ align-items: center;
 const BigPhoto = ({ location, userName, urlOfPhoto, setDataOfPhoto }) => {
 	return (
 		<StyledBackdropPhoto
-		type='button'
-		onClick={()=>setDataOfPhoto({})}
+			onClick={() => setDataOfPhoto({})}
 		>
-				<div className='backdrop'>
-					<div>
-						<p>user Name: <b>{userName}</b></p>
-						<i
-							className="fas fa-times"
-							onClick={() => setDataOfPhoto({})}
-						></i>
-					</div>
-					<div className='containerForImg'>
-						<img className='img' src={urlOfPhoto} alt=""></img>
-					</div>
-					<div><p>{location && 'location: '}{location}</p></div>
+			<div className='backdrop'>
+				<div>
+					<p>user Name: <b>{userName}</b></p>
+					<i
+						className="fas fa-times"
+						onClick={() => setDataOfPhoto({})}
+					></i>
 				</div>
+				<div className='containerForImg'>
+					<img
+						className='img'
+						src={urlOfPhoto}
+						alt=""
+					></img>
+				</div>
+				<div><p>{location && 'location: '}{location}</p></div>
+			</div>
 		</StyledBackdropPhoto>
 	)
 }
