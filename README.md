@@ -1,78 +1,65 @@
 <h1 align='center'> PHOTO FINDER (TEST)</h1>
 
+<center><img src='src\assets\usability_of_finder.gif'/></center>
 
-## [View a Demo](https://photo-finder-test.netlify.app/) 
+<h2 align='center'> <a href='https://photo-finder-test.netlify.app/'>View a Demo</h2>
 
-<p align='center'>I used free API from <b> UNSPLASH (https://github.com/unsplash/unsplash-js)</b> </p>
+<p align='center'>I used free API <b> UNSPLASH <a href='https://github.com/unsplash/unsplash-js'>https://github.com/unsplash/unsplash-js</a></b> </p>
+
+<br>
+
+____________________________________________________________________
+## What stack?
+**- JAVASCRIPT**<br> 
+**- React**<br> 
+**- React-hooks**<br> 
+**- React-Context**<br> 
+**- RestAPI**<br> 
+**- STYLED-COMPONENTS**<br> 
+____________________________________________________________________
+
+## Description
+
+It is a simple photo finder based on the Unsplash API. You need to enter a keyword and the finder will find your images based on your keyword search. For each request, there 10 photos in response, and when you scroll to the end will start a new request for new photos.
+You can share the link with others, request will work.
+
+Photos are clickable.
+
+The finder is built based on the screen size. I know the size of images and screens and I can display smaller images, when this is no need to display larger images.
+
+____________________________________________________________________
+
+**ADAPTIVE**
+<br> 
+<br> 
+
+![Adaptive for screens](src\assets\adaptive_to_devices.gif)
+
+<br>
+
+**How to share link**
+<br> 
+<br> 
+
+![how to share link](src\assets\shared_link.gif)
+
+<br>
+
+**Clickable photo**
+<br> 
+<br> 
+
+![Clickable photo](src\assets\Big_Photo.gif)
+
+<br>
 
 
-# Getting Started with Create React App
+## About the project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*It is a trial work. I would say that this work was hard for me. Because not everything was clear in the task. I was trying to find the autocomplete search which was in the task and couldn't find it, because it isn't there. I have been trying for a long time to find an answer to this question on the internet and tried to get it from the Unsplash page, but Unsplash doesn't support this features.*
+<br>
 
-## Available Scripts
+*Next level was when I was writing a custom hook and found that the hook was unmounted when the component was unmounted. It was incomprehensible to me, and I spent a lot of time trying to figure out why this is so. When I realized that these are properties of hooks, I decided to use Redux. It was evening, but in the morning I decided it would be more clear to write using React.context. I thought to write using local storage, but using it was not so easy. After all I used context. This is not the best way, it seems reasonable at that moment. Now I know, that I should have written the hook differently, or I should have used the session storage.*
 
-In the project directory, you can run:
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*It was a good opportunity to understand how to use hooks, custom hooks, context. Find out what difference is between local storage and session storage. When I was creating indefinite scrolling, I found a solution how to build component that needs to have a height, before the image is loaded. This solution is a padding-bottom trick. If I know the size of the image, I can build the component to the height I need.*
