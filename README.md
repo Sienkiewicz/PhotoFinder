@@ -1,6 +1,6 @@
 <h1 align='center'> PHOTO FINDER (TEST)</h1>
 
-<center><img src='src\assets\usability_of_finder.gif'/></center>
+<center><img src='src/assets/usability_of_finder.gif'/></center>
 
 <h2 align='center'> <a href='https://photo-finder-test.netlify.app/'>View a Demo</h2>
 
@@ -33,7 +33,7 @@ ____________________________________________________________________
 <br> 
 <br> 
 
-![Adaptive for screens](src\assets\adaptive_to_devices.gif)
+![Adaptive for screens](src/assets/adaptive_to_devices.gif)
 
 <br>
 
@@ -41,7 +41,7 @@ ____________________________________________________________________
 <br> 
 <br> 
 
-![how to share link](src\assets\shared_link.gif)
+![how to share link](src/assets/shared_link.gif)
 
 <br>
 
@@ -49,7 +49,7 @@ ____________________________________________________________________
 <br> 
 <br> 
 
-![Clickable photo](src\assets\Big_Photo.gif)
+![Clickable photo](src/assets/Big_Photo.gif)
 
 <br>
 
