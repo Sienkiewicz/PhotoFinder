@@ -23,7 +23,6 @@ const StateProviderContext = ({ children }) => {
 	const [arrayOfPhotos, setArrayOfPhotos] = useState([])
 
 	const searchForQuery = async (query, pageNr = 1, perPage = 10) => {
-		try {
 			unsplash.search
 				.photos(query, pageNr, perPage)
 				.then(toJson)
@@ -38,9 +37,7 @@ const StateProviderContext = ({ children }) => {
 				.then(() => {
 					history.push(`/photos/${ query }`)
 				})
-		} catch (error) {
-			console.log(error)
-		}
+		.catch( error => console.log(error))
 
 	}
 
